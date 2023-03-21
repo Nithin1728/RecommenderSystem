@@ -1,0 +1,19 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block contents %}
+<body>
+ <center><h2 style="color:darkolivegreen"> User {{request.session.stuid}} Recommended Excercise Detalis based on Registration Data</h2></center>
+<table border="2px solid blue" align="center">
+     {% for x in message%}
+    <tr><td>Age</td> <td>{{x.age}}</td></tr>
+    <tr><td>Weight</td><td>{{x.weight}}</td></tr>
+    <tr><td>Recommended Excercise 1</td> <td style="font-weigt:bold;color:RED">{{x.excercise1}}</td></tr>
+    <tr><td>Recommended Excercise 2</td> <td style="font-weigt:bold;color:RED">{{x.excercise2}}</td></tr>
+    <tr><td>Diet</td><td style="font-weigt:bold;color:GREEN">{{x.diet}}</td></tr>
+
+   {% endfor%}
+</table>
+
+</body>
+{% endblock %}

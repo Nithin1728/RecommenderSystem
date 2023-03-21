@@ -1,0 +1,18 @@
+{% extends 'fasbase.html' %}
+{% load static %}
+
+{% block contents %}
+<center> <h2>Upload CSV</h2>
+    <!--<form action="{% url 'uploadfile' %}" method="POST"  enctype="multipart/form-data">-->
+<p><strong>NOTE:</strong> The CSV FIle Must Contain the columns like <b>AGE</b>,<b>WEIGHT</b>,<b>EXCERCISE1</b>,<b>EXCERCISE2</b>,<b>DIET</b></p>
+   </center> <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <center>
+            <table>
+                <tr><td>Name</td><td><input type="text" name="name" value=""></td></tr>
+                <tr><td> File</td><td><input type="file" name="file" value="file"></td></tr>
+                <tr><td></td><td><button type="submit" >Save</button></tr></td>
+            </table>
+        </center>
+</form>
+{% endblock %}

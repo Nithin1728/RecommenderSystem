@@ -1,0 +1,21 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block contents %}
+
+<div>
+     <center><h2><b>User Predections Summery with ANN</b></h2></center>
+         <center>
+             <table border="2px solid blue" align="center">
+
+             <tr><td>Result</td> <td>{{dict.result}}</td></tr>
+                 <tr><td>Situavations</td><td>{{dict.newsiut}}</td></tr>
+                 <tr><td>After Training</td> <td style="font-weigt:bold;color:RED">{{dict.aftrtraining}}</td></tr>
+                 <tr><td>Generated Weights</td> <td style="font-weigt:bold;color:RED">{{dict.genweight}}</td></tr>
+                 <tr><td></td><td>Logistic Regression</td></tr>
+                 <tr><td>Accuracy</td><td>{{lgdict.Accuracy}}</td></tr>
+                 <tr><td>Precision</td><td>{{lgdict.Precision}}</td></tr>
+                 <tr><td>Recall</td><td>{{lgdict.Recall}}</td></tr>
+             </table>
+         </center>
+</div>
+    {% endblock %}

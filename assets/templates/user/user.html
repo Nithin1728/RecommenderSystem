@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<center>
+    <h2><b>User Login</b></h2>
+    <p>
+        <form action="{% url 'userlogincheck' %}" method="POST">
+    {% csrf_token %}
+         <input type="text" name="loginid" placeholder="User Login Name"><br/><br/>
+         <input type="password" name="password" placeholder="Password"><br/><br/>
+    <button type="submit">Login</button><br><br>
+    <a href="{% url 'userregistration' %}">Click Here to User Registration</a>
+    {% if messages %}
+       {% for message in messages %}
+            <font color=RED'>{{message}}</font>
+        {% endfor %}
+    {% endif %}
+
+</form>
+    </p>
+
+</center>
+    {% endblock %}

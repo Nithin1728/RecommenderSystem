@@ -1,0 +1,51 @@
+{% extends 'adminbase.html' %}
+
+{% block contents %}
+
+
+  <div class="container">
+    <!-- Example row of columns -->
+   <h2><b>Admin View Registered Users</b></h2>
+    <table border="2px">
+            <tr>
+
+               <tr> <th  style="color:#F8A0FA ">Name</th>
+                   <th style="color:#F8A0FA ">Login Name</th>
+                   <th style="color:#F8A0FA ">Gender</th>
+                   <th style="color:#F8A0FA ">Age</th>
+                   <th style="color:#F8A0FA ">Height</th>
+                  <th style="color:#F8A0FA ">Weight</th>
+                   <th style="color:#F8A0FA ">Email</th>
+                   <th style="color:#F8A0FA ">Contact</th>
+                   <th style="color:#F8A0FA ">Auth Key</th>
+                   <th style="color:#F8A0FA ">Status</th>
+                   <th style="color:#F8A0FA ">Activate</th></tr>
+
+
+            {% for i in object %}
+
+
+        <tr>    <td style="color:#F4CE96">{{i.name}}</td>
+            <td style="color:#F4CE96">{{i.loginid}}</td>
+            <td style="color:#F4CE96">{{i.gender}}</td>
+                <td style="color:#F4CE96 ">{{i.age}}</td>
+                <td style="color:#F4CE96">{{i.height}}</td>
+                <td style="color:#F4CE96">{{i.weight}}</td>
+                <td style="color:#F4CE96">{{i.email}}</td>
+                <td style="color:#F4CE96">{{i.contact}}</td>
+                <td style="color:#F4CE96">{{i.authkey}}</td>
+                <td style="color:#F4CE96">{{i.status}}</td>
+
+             {% if i.status == 'waiting' %}
+            <td> <a href="/activateusers/?pid={{ i.id }}" >Activate</a></td>
+            {% else %}
+            <td style="color:#66EAB8 "> Activated</td>
+            {% endif %}
+
+        </tr>
+            {% endfor %}
+
+        </table>
+
+{% endblock %}
+  </div>

@@ -1,0 +1,47 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block contents %}
+<script>
+    function MyFunction(){
+        alert('The Cold Functions is invoked')
+    }
+</script>
+<div>
+     <center><h2><b>Today Status</b></h2></center>
+     <p><form method="POST" action="{% url 'status' %}">
+        {% csrf_token %}
+         <center>
+             <table>
+                 <tr><td>User Name</td><td>{{form.name}}</td></tr>
+                 <tr><td>Excercise</td><td>{{form.excercise}}</td></tr>
+                 <tr><td>Email</td><td>{{form.email}}</td></tr>
+                 <tr><td> Contact</td><td>{{form.contact}}</td></tr>
+                 <tr><td>Date</td><td>{{form.date}}</td></tr>
+                 <tr><td>Duration</td><td>{{form.duration}}</td></tr>
+                 <tr><td>Calories Burned</td><td>{{form.caloriesburned}}</td></tr>
+
+
+
+               <tr><td><button type="submit">Update</button></td></tr>
+                 <center>
+                     {% if messages %}
+                            {% for message in messages %}
+                                <font color='RED'>{{message}}</font>
+                            {% endfor %}
+                     {% endif %}
+
+
+
+
+                 </center>
+
+             </table>
+
+         </center>
+
+
+     </form>
+    <center>
+    <img src="{% static 'images/calburn.jpg'%} " width="800",height="400">
+        </center>
+    {% endblock %}
